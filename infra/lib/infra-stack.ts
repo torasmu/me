@@ -34,7 +34,9 @@ export class PersonalSiteInfraStack extends Stack {
           },
           artifacts: {
             baseDirectory: 'dist',
-            files: '**/*',
+            files: [
+              '**/*',
+            ],
           },
         },
       })
