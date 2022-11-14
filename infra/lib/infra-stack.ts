@@ -16,9 +16,16 @@ export class PersonalSiteInfraStack extends Stack {
         }),
       }),
     })
+
+    //Branches
     const mainBranch = amplifyApp.addBranch('main', {
       stage: 'PRODUCTION',
     })
     const devBranch = amplifyApp.addBranch('dev')
+
+    // Domains
+    const domain = amplifyApp.addDomain('tomras.dev')
+    domain.mapRoot(mainBranch)
+    domain.mapSubDomain(devBranch, 'dev')
   }
 }
