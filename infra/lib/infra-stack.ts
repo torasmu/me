@@ -1,16 +1,24 @@
-import * as cdk from 'aws-cdk-lib';
+import { App, GitHubSourceCodeProvider } from '@aws-cdk/aws-amplify-alpha';
+import { SecretValue, Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
 
-export class InfraStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+export class PersonalSiteInfraStack extends Stack {
+  constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
 
-    // example resource
-    // const queue = new sqs.Queue(this, 'InfraQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    const amplifyApp = new App(this, "personal-site", {
+      sourceCodeProvider: new GitHubSourceCodeProvider({
+        owner: "torasmu",
+        repository: "me",
+        // Had to create this secret manually in the console
+        oauthToken: SecretValue.secretsManager("github-aws-amplify-token", {
+          jsonField: "token",
+        }),
+      }),
+    });
+    const masterBranch = amplifyApp.addBranch("main");
+
+
   }
 }
