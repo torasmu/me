@@ -26,6 +26,7 @@ export class PersonalSiteInfraStack extends Stack {
     // Domains
     const domain = amplifyApp.addDomain('tomras.dev')
     domain.mapRoot(mainBranch)
+    domain.mapSubDomain(mainBranch, 'www')
     domain.mapSubDomain(devBranch, 'dev')
   }
 }
