@@ -17,8 +17,6 @@ export class PersonalSiteInfraStack extends Stack {
           jsonField: "token",
         }),
       }),
-    });
-    const mainBranch = amplifyApp.addBranch("main", {
       buildSpec: BuildSpec.fromObject({
         version: '1.0',
         frontend: {
@@ -42,5 +40,6 @@ export class PersonalSiteInfraStack extends Stack {
         },
       })
     });
+    const mainBranch = amplifyApp.addBranch("main");
   }
 }
