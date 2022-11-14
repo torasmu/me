@@ -2,7 +2,6 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 
 function App() {
-
   return (
     <div className="App">
       <div>
@@ -13,7 +12,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </div>
       </div>
-      <h1>Hello World</h1>
+      <h1>Hello World!</h1>
     </div>
   )
 }
