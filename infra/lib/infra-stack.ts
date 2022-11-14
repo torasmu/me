@@ -16,6 +16,9 @@ export class PersonalSiteInfraStack extends Stack {
         }),
       }),
     })
-    const mainBranch = amplifyApp.addBranch('main')
+    const mainBranch = amplifyApp.addBranch('main', {
+      stage: 'PRODUCTION',
+    })
+    const devBranch = amplifyApp.addBranch('dev')
   }
 }
