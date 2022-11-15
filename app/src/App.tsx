@@ -1,18 +1,16 @@
-import reactLogo from './assets/react.svg'
 import './App.css'
+import NameCard from './components/NameCard'
+import LinkBubbles from './components/LinkBubbles'
 
 function App() {
   return (
     <div className="App">
-      <div>
-        <div>
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </div>
-        <div>
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </div>
-      </div>
-      <h1>Hello World!</h1>
+      <NameCard
+        name={'Tom Rasmussen'}
+        job={'Software Engineer'}
+        location={'New York, NY'}
+      />
+      <LinkBubbles />
     </div>
   )
 }
