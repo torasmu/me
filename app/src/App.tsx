@@ -1,19 +1,30 @@
-import reactLogo from './assets/react.svg'
 import './App.css'
+import Walk from './Walk'
+import { Canvas } from '@react-three/fiber'
+import { PerspectiveCamera, Vector3 } from 'three'
+import Sidewalk from './Sidewalk'
 
 function App() {
+  const camera = new PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
+  )
+
+  camera.position.x = -3
+  camera.position.y = 2
+  camera.position.z = 0
+  camera.lookAt(new Vector3(0, 1, 0))
+
   return (
-    <div className="App">
-      <div>
-        <div>
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </div>
-        <div>
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </div>
-      </div>
-      <h1>Hello World!</h1>
-    </div>
+    <Canvas camera={camera}>
+      <ambientLight intensity={0.5} />
+      <axesHelper />
+      <directionalLight />
+      <Walk />
+      <Sidewalk />
+    </Canvas>
   )
 }
 
