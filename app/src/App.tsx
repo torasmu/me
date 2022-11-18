@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import NameCard from './components/NameCard'
 import LinkBubbles from './components/LinkBubbles'
 import BigLinks from './components/BigLinks'
+import PageContainer from './components/PageContainer'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 const Container = styled.div`
   display: flex;
@@ -20,6 +22,7 @@ const RightPanel = styled.div`
   flex: 3;
   border: 1px solid green;
   width: 100%;
+  min-width: 300px;
   padding: 20px;
 `
 
@@ -35,7 +38,25 @@ function App() {
         <LinkBubbles />
       </LeftPanel>
       <RightPanel>
-        <BigLinks />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<BigLinks />} />
+            <Route
+              path="/about"
+              element={<PageContainer>about</PageContainer>}
+            />
+            <Route path="/tech" element={<PageContainer>tech</PageContainer>} />
+            <Route
+              path="/experience"
+              element={<PageContainer>experience</PageContainer>}
+            />
+            <Route
+              path="/travel"
+              element={<PageContainer>travel</PageContainer>}
+            />
+          </Routes>
+        </BrowserRouter>
+        {/* <BigLinks /> */}
       </RightPanel>
     </Container>
   )

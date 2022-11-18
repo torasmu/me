@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
   display: flex;
@@ -9,7 +10,7 @@ const Container = styled.div`
   gap: 10px;
 `
 
-const BigLink = styled.a`
+const BigLink = styled(Link)`
   font-size: 20px;
   text-decoration: none;
   color: black;
@@ -17,10 +18,10 @@ const BigLink = styled.a`
 
 const BigLinks = () => (
   <Container>
-    <BigLink href="/about">About</BigLink>
-    <BigLink href="/tech">Technologies</BigLink>
-    <BigLink href="/experience">Experience</BigLink>
-    <BigLink href="/travel">Travel</BigLink>
+    <BigLink to="/about">About</BigLink>
+    <BigLink to="/tech">Technologies</BigLink>
+    <BigLink to="/experience">Experience</BigLink>
+    <BigLink to="/travel">Travel</BigLink>
   </Container>
 )
 
