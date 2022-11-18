@@ -2,17 +2,17 @@ import styled from 'styled-components'
 import PersonData, { PersonDataType } from './PersonData'
 
 const Card = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   border: 1px solid black;
-  border-radius: 10px;
   min-width: 300px;
-  box-shadow: 5px 5px 5px;
 `
 
 const Headshot = styled.img`
-  width: 300px;
+  width: 250px;
   border: 1px solid black;
-  border-radius: 10px;
-  margin: 30px;
+  margin: 24px auto;
 `
 
 type NameCardProps = {

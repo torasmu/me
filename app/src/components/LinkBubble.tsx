@@ -5,10 +5,9 @@ const Bubble = styled.a`
   justify-content: center;
   align-items: center;
   border: 1px solid black;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  box-shadow: 5px 5px 5px;
   color: black;
 
   > svg {

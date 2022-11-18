@@ -8,8 +8,8 @@ const BubbleBuddy = styled.div`
   justify-content: center;
   align-items: center;
   gap: 15px;
-  height: 80px;
-  margin-top: 15px;
+  height: 60px;
+  margin-top: 10px;
 `
 
 const LinkBubbles = () => (

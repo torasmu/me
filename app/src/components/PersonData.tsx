@@ -10,9 +10,9 @@ const CandyBar = styled.div`
   border-top: 1px solid black;
   display: flex;
   align-items: center;
-  padding: 15px;
-  gap: 15px;
-  font-size: 22px;
+  padding: 12px;
+  gap: 12px;
+  font-size: 18px;
 `
 
 export enum PersonDataType {
@@ -38,7 +38,7 @@ const PersonData = ({ type, text }: PersonDataProps) => {
 
   return (
     <CandyBar>
-      <Icon size={22} />
+      <Icon size={18} />
       {text}
     </CandyBar>
   )
