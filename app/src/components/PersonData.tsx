@@ -7,12 +7,12 @@ import {
 } from 'react-icons/bs'
 
 const CandyBar = styled.div`
-  border-top: 1px solid black;
+  border-top: 1px solid #1220ba;
   display: flex;
   align-items: center;
   padding: 15px;
   gap: 15px;
-  font-size: 22px;
+  font-size: 24px;
 `
 
 export enum PersonDataType {
