@@ -16,6 +16,7 @@ const Header = styled.div`
 
 const Headshot = styled.img`
   width: 200px;
+  height: 200px;
   border: 1px solid #1220ba;
   border-radius: 10px;
   margin: 30px;
