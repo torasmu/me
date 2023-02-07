@@ -1,12 +1,11 @@
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 16px;
   line-height: 24px;
-  font-weight: 400;
+  font-weight: bold;
 
-  color-scheme: light dark;
-  color: #213547;
-  background-color: #ffffff;
+  color: #1220ba;
+  background-color: #ffc02e;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

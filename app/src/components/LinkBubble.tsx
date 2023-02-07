@@ -4,12 +4,17 @@ const Bubble = styled.a`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
+  border: 2px solid #1220ba;
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  box-shadow: 5px 5px 5px;
-  color: black;
+  color: #1220ba;
+  transform: rotate(5deg) skew(5deg);
+
+  :hover {
+    color: #1812ff;
+    border-color: #1812ff;
+  }
 
   > svg {
     height: 50%;

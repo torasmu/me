@@ -10,16 +10,17 @@ const BubbleBuddy = styled.div`
   gap: 15px;
   height: 80px;
   margin-top: 15px;
+  transform: rotate(-5deg) skew(-5deg);
 `
 
 const LinkBubbles = () => (
   <BubbleBuddy>
+    <LinkBubble href="mailto:tomras12@gmail.com" icon={<MdMailOutline />} />
     <LinkBubble
       href="https://www.linkedin.com/in/tom-rasmussen-760918103/"
       icon={<BsLinkedin />}
     />
     <LinkBubble href="https://github.com/torasmu" icon={<BsGithub />} />
-    <LinkBubble href="mailto:tomras12@gmail.com" icon={<MdMailOutline />} />
     <LinkBubble href="/resume.pdf" icon={<MdOutlineDocumentScanner />} />
   </BubbleBuddy>
 )
