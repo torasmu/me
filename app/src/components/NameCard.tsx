@@ -17,10 +17,11 @@ const Header = styled.div`
 const Headshot = styled.img`
   width: 200px;
   height: 200px;
-  border: 1px solid #1220ba;
-  border-radius: 10px;
   margin: 30px;
   transform: rotate(5deg) skew(5deg);
+  // tan(5 deg) == 8.7%
+  -webkit-clip-path: polygon(0 8.7%, 0 100%, 100% 91.3%, 100% 0);
+  clip-path: polygon(0 8.7%, 0 100%, 100% 91.3%, 100% 0);
 `
 
 type NameCardProps = {
