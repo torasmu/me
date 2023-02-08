@@ -20,4 +20,9 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+
+  /* https://ilxanlar.medium.com/you-shouldnt-rely-on-css-100vh-and-here-s-why-1b4721e74487 */
+  min-height: fill-available;
+  min-height: -webkit-fill-available;
+  min-height: -moz-available;
 }
