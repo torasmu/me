@@ -7,6 +7,8 @@
   color: #1220ba;
   background-color: #ffc02e;
 
+  height: 100%;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -19,7 +21,6 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
 
   /* https://ilxanlar.medium.com/you-shouldnt-rely-on-css-100vh-and-here-s-why-1b4721e74487 */
   min-height: fill-available;
