@@ -15,6 +15,8 @@ export const BackButtonWrapper = ({
 }: BackButtonWrapperProps) => {
   const { shownSide, setShownSide } = useBoxContext()
   const goToFront = () => setShownSide('front')
+  const isMobile = window.innerWidth <= 768
+
   return (
     <div style={{ height: '100%', textAlign: 'left' }}>
       <Bubble
@@ -24,11 +26,12 @@ export const BackButtonWrapper = ({
           cursor: 'pointer',
           // Makes it fly in from above
           transition: 'transform 1s',
-          transform: `translateY(-${shownSide === side ? 0 : 1000}px) scale(${
-            shownSide === side ? 1 : 0
-          })`,
-          left: '-80px',
-          top: '10px',
+          // On mobile it should float above the box so it's not covered
+          transform: `translateX(${isMobile ? '-50%' : '0%'}) translateY(-${
+            shownSide === side ? 0 : 1000
+          }px) scale(${shownSide === side ? 1 : 0})`,
+          top: isMobile ? '-80px' : '10px',
+          left: isMobile ? '50%' : '-80px',
         }}
       >
         <IoArrowBack />
