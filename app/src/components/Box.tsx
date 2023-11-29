@@ -47,6 +47,11 @@ export const Box = (props: BoxProps) => {
           transformStyle: 'preserve-3d',
           transform: getTransform(shownSide || 'front'),
           transition: 'transform 1s',
+
+          // Centers children which makes abs positioning easier
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
         <BoxFace side="front">{props.front}</BoxFace>
@@ -55,8 +60,8 @@ export const Box = (props: BoxProps) => {
         <BoxFace side="back"> {props.back} </BoxFace>
         <BoxFace side="top">{props.top}</BoxFace>
         <BoxFace side="bottom">{props.bottom}</BoxFace>
-        <NavArrow label={'About'} side={'left'} />
-        <NavArrow label={'Contact'} side={'right'} />
+        <NavArrow label={'About'} side={'left'} rotate={-90} />
+        <NavArrow label={'Contact'} side={'right'} rotate={90} />
         <NavArrow label={'Skills'} side={'top'} />
         <NavArrow label={'Travel'} side={'bottom'} />
       </div>

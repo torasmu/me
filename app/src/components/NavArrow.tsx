@@ -4,13 +4,15 @@ import { BoxDimensions, useBoxContext } from '../context/BoxContext'
 type NavArrowProps = {
   side: Side
   label: string
+  rotate?: number
 }
 
 const buildLabel = (side: Side, label: string): string => {
   switch (side) {
-    case 'right':
-      return `← ${label}`
+    // TODO: should consider if it's rotated and set the arrow accordingly
     case 'top':
+    case 'left':
+    case 'right':
       return `${label}\n↓`
     case 'bottom':
       return `↑\n${label}`
@@ -19,40 +21,42 @@ const buildLabel = (side: Side, label: string): string => {
   }
 }
 
-const calculateTransform = (side: Side, showSide: Side, dim: BoxDimensions) => {
+const calculateTransform = (
+  side: Side,
+  showSide: Side,
+  dim: BoxDimensions,
+  rotate?: number
+) => {
   const extraTranslate = showSide === 'front' ? 0 : 2000
 
+  let transform = ''
+  // lots of magic numbers here but *shrug*
   switch (side) {
     case 'left':
-      return `translateX(-${dim.w / 2 + 150 + extraTranslate}px)`
+      transform = `translateX(-${dim.w / 2 + 110 + extraTranslate}px)`
+      break
     case 'right':
-      return `translateX(${dim.w / 2 + 150 + extraTranslate}px)`
+      transform = `translateX(${dim.w / 2 + 110 + extraTranslate}px)`
+      break
     case 'top':
-      return `translateY(-${dim.h / 2 + 150 + extraTranslate}px)`
+      transform = `translateY(-${dim.h / 2 + 150 + extraTranslate}px)`
+      break
     case 'bottom':
-      return `translateY(${dim.h / 2 + 170 + extraTranslate}px)`
-    default:
-      return ''
+      transform = `translateY(${dim.h / 2 + 170 + extraTranslate}px)`
+      break
   }
+  return transform + ' rotate(' + (rotate || 0) + 'deg)'
 }
 
-export const NavArrow = ({ side, label }: NavArrowProps) => {
+export const NavArrow = ({ side, label, rotate }: NavArrowProps) => {
   const { w, h, d, shownSide, setShownSide } = useBoxContext()
-  const transform = calculateTransform(side, shownSide, { w, h, d })
+  const transform = calculateTransform(side, shownSide, { w, h, d }, rotate)
 
   return (
     <div
       style={{
         // Need to use absolute so they all 'overlap'
         position: 'absolute',
-
-        // Ensures content is centered in parent
-        // (makes alignment easier when using absolute positioning)
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
-        height: '100%',
 
         // Text styles
         lineHeight: 1,
