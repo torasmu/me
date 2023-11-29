@@ -17,27 +17,38 @@ type BoxProps = {
 
 export const Box = (props: BoxProps) => {
   const { w, h, d, shownSide } = useBoxContext()
+  const isMobile = window.innerWidth <= 768
 
   const getTransform = (side: Side): string => {
     const zoom = 100
+    // TODO: I wonder if I can make this smarter, to cover all the cases?
+    const windowAdjust = isMobile ? 250 : -100
     switch (side) {
       case 'front':
-        return `translateZ(-${d / 2}px) `
+        return `translateZ(${-1 * (d / 2 + windowAdjust)}px) `
       case 'left':
-        return `translateZ(-${w / 2 - zoom}px) rotateY(  90deg)`
+        return `translateZ(${
+          -1 * (w / 2 - zoom + windowAdjust)
+        }px) rotateY(  90deg)`
       case 'right':
-        return `translateZ(-${w / 2 - zoom}px) rotateY(-90deg)`
+        return `translateZ(${
+          -1 * (w / 2 - zoom + windowAdjust)
+        }px) rotateY(-90deg)`
       case 'top':
-        return `translateZ(-${d / 2 - zoom}px) rotateX(-90deg)`
+        return `translateZ(${
+          -1 * (d / 2 - zoom + windowAdjust)
+        }px) rotateX(-90deg)`
       case 'bottom':
-        return `translateZ(-${d / 2 - zoom}px) rotateX(90deg)`
+        return `translateZ(${
+          -1 * (d / 2 - zoom + windowAdjust)
+        }px) rotateX(90deg)`
       default:
         return ''
     }
   }
 
   return (
-    <div style={{ width: w, height: h, margin: 80, perspective: 500 }}>
+    <div style={{ width: w, height: h, perspective: 500 }}>
       <div
         style={{
           width: w,
@@ -46,7 +57,7 @@ export const Box = (props: BoxProps) => {
           textAlign: 'center',
           transformStyle: 'preserve-3d',
           transform: getTransform(shownSide || 'front'),
-          transition: 'transform 1s',
+          transition: 'all 1s ease',
 
           // Centers children which makes abs positioning easier
           display: 'flex',

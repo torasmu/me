@@ -33,19 +33,19 @@ const calculateTransform = (
   // lots of magic numbers here but *shrug*
   switch (side) {
     case 'left':
-      transform = `translateX(-${dim.w / 2 + 110 + extraTranslate}px)`
+      transform = `translateX(-${dim.w / 2 + 40 + extraTranslate}px)`
       break
     case 'right':
-      transform = `translateX(${dim.w / 2 + 110 + extraTranslate}px)`
+      transform = `translateX(${dim.w / 2 + 40 + extraTranslate}px)`
       break
     case 'top':
-      transform = `translateY(-${dim.h / 2 + 150 + extraTranslate}px)`
+      transform = `translateY(-${dim.h / 2 + 40 + extraTranslate}px)`
       break
     case 'bottom':
-      transform = `translateY(${dim.h / 2 + 170 + extraTranslate}px)`
+      transform = `translateY(${dim.h / 2 + 55 + extraTranslate}px)`
       break
   }
-  return transform + ' rotate(' + (rotate || 0) + 'deg)'
+  return transform + ` rotate(${rotate || 0}deg) translateZ(${dim.d / 2}px)`
 }
 
 export const NavArrow = ({ side, label, rotate }: NavArrowProps) => {
@@ -60,7 +60,7 @@ export const NavArrow = ({ side, label, rotate }: NavArrowProps) => {
 
         // Text styles
         lineHeight: 1,
-        fontSize: 40,
+        fontSize: 32,
         fontWeight: 'bold',
         whiteSpace: 'pre-wrap',
 
