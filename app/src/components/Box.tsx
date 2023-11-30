@@ -15,44 +15,11 @@ type BoxProps = {
   back?: React.ReactNode
 }
 
-// There's a strange bug on mobile where exact 90deg rotations don't work
-// The entire div disappears. This is a hacky fix.
-const DEG_90 = '89.999deg'
-
 export const Box = (props: BoxProps) => {
-  const { w, h, d, shownSide } = useBoxContext()
-  const isMobile = window.innerWidth <= 768
-
-  const getTransform = (side: Side): string => {
-    const zoom = 100
-    // TODO: I wonder if I can make this smarter, to cover all the cases?
-    const windowAdjust = isMobile ? 250 : 0
-    switch (side) {
-      case 'front':
-        return `translateZ(${-1 * (d / 2 + windowAdjust)}px) `
-      case 'left':
-        return `translateZ(${
-          -1 * (w / 2 - zoom + windowAdjust)
-        }px) rotateY(  ${DEG_90})`
-      case 'right':
-        return `translateZ(${
-          -1 * (w / 2 - zoom + windowAdjust)
-        }px) rotateY(-${DEG_90})`
-      case 'top':
-        return `translateZ(${
-          -1 * (d / 2 - zoom + windowAdjust)
-        }px) rotateX(-${DEG_90})`
-      case 'bottom':
-        return `translateZ(${
-          -1 * (d / 2 - zoom + windowAdjust)
-        }px) rotateX(${DEG_90})`
-      default:
-        return ''
-    }
-  }
+  const { w, h, shownSide, getTransform } = useBoxContext()
 
   return (
-    <div style={{ width: w, height: h, perspective: 500 }}>
+    <div style={{ width: w, height: h, perspective: 1800 }}>
       <div
         style={{
           width: w,
@@ -61,7 +28,7 @@ export const Box = (props: BoxProps) => {
           textAlign: 'center',
           transformStyle: 'preserve-3d',
           transform: getTransform(shownSide || 'front'),
-          transition: 'all 1s ease',
+          transition: 'transform 1s ease',
 
           // Centers children which makes abs positioning easier
           display: 'flex',
