@@ -15,6 +15,10 @@ type BoxProps = {
   back?: React.ReactNode
 }
 
+// There's a strange bug on mobile where exact 90deg rotations don't work
+// The entire div disappears. This is a hacky fix.
+const DEG_90 = '89.999deg'
+
 export const Box = (props: BoxProps) => {
   const { w, h, d, shownSide } = useBoxContext()
   const isMobile = window.innerWidth <= 768
@@ -22,26 +26,26 @@ export const Box = (props: BoxProps) => {
   const getTransform = (side: Side): string => {
     const zoom = 100
     // TODO: I wonder if I can make this smarter, to cover all the cases?
-    const windowAdjust = isMobile ? 250 : -100
+    const windowAdjust = isMobile ? 250 : 0
     switch (side) {
       case 'front':
         return `translateZ(${-1 * (d / 2 + windowAdjust)}px) `
       case 'left':
         return `translateZ(${
           -1 * (w / 2 - zoom + windowAdjust)
-        }px) rotateY(  90deg)`
+        }px) rotateY(  ${DEG_90})`
       case 'right':
         return `translateZ(${
           -1 * (w / 2 - zoom + windowAdjust)
-        }px) rotateY(-90deg)`
+        }px) rotateY(-${DEG_90})`
       case 'top':
         return `translateZ(${
           -1 * (d / 2 - zoom + windowAdjust)
-        }px) rotateX(-90deg)`
+        }px) rotateX(-${DEG_90})`
       case 'bottom':
         return `translateZ(${
           -1 * (d / 2 - zoom + windowAdjust)
-        }px) rotateX(90deg)`
+        }px) rotateX(${DEG_90})`
       default:
         return ''
     }
