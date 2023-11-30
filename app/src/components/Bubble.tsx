@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { BLUE } from '../utils/color'
+import { BLUE, HOVER_BLUE } from '../utils/color'
 
 interface BubbleProps {
   skew?: boolean
@@ -17,8 +17,8 @@ export const Bubble = styled.a<BubbleProps>`
   ${(props) => props.skew && 'transform: rotate(5deg) skew(5deg);'}
 
   :hover {
-    color: #1812ff;
-    border-color: #1812ff;
+    color: ${HOVER_BLUE};
+    border-color: ${HOVER_BLUE};
   }
 
   > svg {

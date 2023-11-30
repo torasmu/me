@@ -1,6 +1,7 @@
 import { Side } from './Box'
 import { BoxDimensions, useBoxContext } from '../context/BoxContext'
 import { useEffect, useState } from 'react'
+import { BLUE, HOVER_BLUE } from '../utils/color'
 
 type NavArrowProps = {
   side: Side
@@ -62,13 +63,19 @@ export const NavArrow = ({ side, label, rotate }: NavArrowProps) => {
   const [transform, setTransform] = useState<string>(
     calculateTransform(side, shownSide, { w, h, d }, rotate)
   )
-  const [zoom, setZoom] = useState<number>(0)
+  const [isHover, setIsHover] = useState<boolean>(false)
   useEffect(
     () =>
       setTransform(
-        calculateTransform(side, shownSide, { w, h, d }, rotate, zoom)
+        calculateTransform(
+          side,
+          shownSide,
+          { w, h, d },
+          rotate,
+          isHover ? 100 : undefined
+        )
       ),
-    [side, shownSide, w, h, d, rotate, zoom]
+    [side, shownSide, w, h, d, rotate, isHover]
   )
 
   const handleHover = () => {
@@ -87,13 +94,13 @@ export const NavArrow = ({ side, label, rotate }: NavArrowProps) => {
         setTiltY(-nudge)
         break
     }
-    setZoom(100)
+    setIsHover(true)
   }
 
   const resetHover = () => {
     setTiltX(0)
     setTiltY(0)
-    setZoom(0)
+    setIsHover(false)
   }
 
   return (
@@ -109,6 +116,7 @@ export const NavArrow = ({ side, label, rotate }: NavArrowProps) => {
         fontSize: 32,
         fontWeight: 'bold',
         whiteSpace: 'pre-wrap',
+        color: isHover ? HOVER_BLUE : BLUE,
 
         // Ensures doesn't mouse-out on tilt
         padding: '25px 0',

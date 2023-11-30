@@ -1,4 +1,3 @@
-import styled from 'styled-components'
 import { Bubble } from './Bubble'
 
 type LinkBubbleProps = {
