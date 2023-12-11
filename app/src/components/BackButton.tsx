@@ -25,11 +25,12 @@ export const BackButtonWrapper = ({
           position: 'absolute',
           cursor: 'pointer',
           // Makes it fly in from above
-          transition: 'transform 1s',
+          transition: 'all 1s',
           // On mobile it should float above the box so it's not covered
           transform: `translateX(${isMobile ? '-50%' : '0%'}) translateY(-${
-            shownSide === side ? 0 : 1000
+            shownSide === side ? 0 : 1200
           }px) scale(${shownSide === side ? 1 : 0})`,
+          opacity: shownSide === side ? 1 : 0,
           top: isMobile ? '-80px' : '10px',
           left: isMobile ? '50%' : '-80px',
         }}

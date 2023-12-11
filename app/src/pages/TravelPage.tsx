@@ -10,10 +10,7 @@ export const TravelPage = ({}: TravelPageProps) => {
       <MapLegend />
       <div
         style={{
-          height: '100%',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+          paddingTop: 20,
         }}
       >
         <Map />

@@ -32,7 +32,7 @@ const calculateTransform = (
 ) => {
   const extraTranslate =
     (showSide === 'front' ? 0 : 2000) + (zoom ? zoom / 3 : 0)
-  const scalingFactor = showSide === 'front' ? 1.0 : 0.01
+  const scalingFactor = showSide === 'front' ? 1.0 : 0
 
   let transform = ''
   // lots of magic numbers here but *shrug*
@@ -123,8 +123,9 @@ export const NavArrow = ({ side, label, rotate }: NavArrowProps) => {
         padding: '25px 0',
 
         // Transform and animation of arrow
-        transition: 'transform 1s',
+        transition: 'all 1s',
         transform,
+        opacity: shownSide === 'front' ? 1 : 0,
 
         cursor: 'pointer',
       }}
