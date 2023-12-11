@@ -1,9 +1,9 @@
 import React from 'react'
-import { BLUE, GRAY, LIGHT_BLUE } from '../utils/color'
+import { BLUE, GRAY } from '../utils/color'
 
 const LEGEND: { label: string; color: string }[] = [
   { label: 'Visited', color: BLUE },
-  { label: 'Up Next', color: LIGHT_BLUE },
+  // { label: 'Up Next', color: LIGHT_BLUE },
   { label: 'Not Visited', color: GRAY },
 ]
 

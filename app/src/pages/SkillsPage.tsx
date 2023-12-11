@@ -6,8 +6,7 @@ type SkillsPageProps = {}
 
 export const SkillsPage = ({}: SkillsPageProps) => {
   return (
-    <PageWrapper>
-      <div>Skills</div>
+    <PageWrapper title={'Skills'}>
       <SkillBar label="React" rating={8} />
       <SkillBar label="Backend" rating={9} />
       <SkillBar label="Infrastructure" rating={7} />

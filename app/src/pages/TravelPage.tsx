@@ -6,11 +6,18 @@ type TravelPageProps = {}
 
 export const TravelPage = ({}: TravelPageProps) => {
   return (
-    <PageWrapper>
-      <div>Travel</div>
+    <PageWrapper title={'Travel'}>
       <MapLegend />
-
-      <Map />
+      <div
+        style={{
+          height: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Map />
+      </div>
     </PageWrapper>
   )
 }

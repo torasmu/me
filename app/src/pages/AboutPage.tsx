@@ -4,8 +4,7 @@ type AboutPageProps = {}
 
 export const AboutPage = ({}: AboutPageProps) => {
   return (
-    <PageWrapper>
-      <div>About</div>
+    <PageWrapper title={'About'}>
       <div>
         <p>
           Hi there! My name is John Doe. I'm a passionate software developer

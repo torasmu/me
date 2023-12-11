@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import PersonData, { PersonDataType } from './PersonData'
-import { BLUE, YELLOW } from '../utils/color'
+import { BLUE } from '../utils/color'
+import { Header } from './Header'
 
 const Card = styled.div`
   border: 2px solid ${BLUE};
@@ -9,13 +10,6 @@ const Card = styled.div`
   flex-direction: column;
   justify-content: space-between;
   // transform: rotate(-5deg) skew(-5deg);
-`
-
-const Header = styled.div`
-  background-color: ${BLUE};
-  color: ${YELLOW};
-  font-size: 28px;
-  line-height: 38px;
 `
 
 const Headshot = styled.img`

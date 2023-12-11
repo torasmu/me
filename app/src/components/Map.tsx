@@ -25,6 +25,8 @@ const VISITED = [
   'Switzerland',
   'Poland',
   'Austria',
+  'Czechia',
+  'Hungary',
 
   // Upcoming
   'Malaysia',
