@@ -32,6 +32,7 @@ const calculateTransform = (
 ) => {
   const extraTranslate =
     (showSide === 'front' ? 0 : 2000) + (zoom ? zoom / 3 : 0)
+  const scalingFactor = showSide === 'front' ? 1.0 : 0.01
 
   let transform = ''
   // lots of magic numbers here but *shrug*
@@ -51,9 +52,9 @@ const calculateTransform = (
   }
   return (
     transform +
-    ` rotate(${rotate || 0}deg) translateZ(${dim.d / 2 + (zoom || -50)}px) ${
-      zoom ? 'scale(1.2)' : ''
-    }`
+    ` rotate(${rotate || 0}deg) translateZ(${
+      dim.d / 2 + (zoom || -50)
+    }px) scale(${scalingFactor * (zoom ? 1.2 : 1.0)})`
   )
 }
 
