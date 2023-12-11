@@ -5,9 +5,10 @@ import {
   BsPinMap,
   BsQuestionCircle,
 } from 'react-icons/bs'
+import { BLUE } from '../utils/color'
 
 const CandyBar = styled.div`
-  border-top: 1px solid #1220ba;
+  border-top: 1px solid ${BLUE};
   display: flex;
   align-items: center;
   padding: 15px;

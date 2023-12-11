@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-import { BsLinkedin, BsGithub } from 'react-icons/bs'
-import { MdMailOutline, MdOutlineDocumentScanner } from 'react-icons/md'
+import { BsLinkedin, BsGithub, BsInstagram } from 'react-icons/bs'
 import LinkBubble from './LinkBubble'
 
 const BubbleBuddy = styled.div`
@@ -15,13 +14,19 @@ const BubbleBuddy = styled.div`
 
 const LinkBubbles = () => (
   <BubbleBuddy>
-    <LinkBubble href="mailto:tomras12@gmail.com" icon={<MdMailOutline />} />
+    {/* Dont want to make my email public */}
+    {/* <LinkBubble href="mailto:tomras12@gmail.com" icon={<MdMailOutline />} /> */}
     <LinkBubble
       href="https://www.linkedin.com/in/tom-rasmussen-760918103/"
       icon={<BsLinkedin />}
     />
     <LinkBubble href="https://github.com/torasmu" icon={<BsGithub />} />
-    <LinkBubble href="/resume.pdf" icon={<MdOutlineDocumentScanner />} />
+    <LinkBubble
+      href="https://www.instagram.com/tom__rasmussen/"
+      icon={<BsInstagram />}
+    />
+    {/* Resume seems a little presumptuous */}
+    {/* <LinkBubble href="/resume.pdf" icon={<MdOutlineDocumentScanner />} /> */}
   </BubbleBuddy>
 )
 
