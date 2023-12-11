@@ -7,7 +7,9 @@ type ContactPageProps = {}
 export const ContactPage = ({}: ContactPageProps) => {
   return (
     <PageWrapper title={'Contact'}>
-      <LinkBubbles />
+      <div style={{ paddingTop: 140 }}>
+        <LinkBubbles />
+      </div>
     </PageWrapper>
   )
 }
