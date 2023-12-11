@@ -7,11 +7,13 @@ type SkillsPageProps = {}
 export const SkillsPage = ({}: SkillsPageProps) => {
   return (
     <PageWrapper title={'Skills'}>
+      <SkillBar label="Backend development" rating={9} />
       <SkillBar label="React" rating={8} />
-      <SkillBar label="Backend" rating={9} />
-      <SkillBar label="Infrastructure" rating={7} />
-      <SkillBar label="Project management" rating={7} />
-      <SkillBar label="Machine learning" rating={6} />
+      <SkillBar label="Databases (SQL, NoSQL)" rating={8} />
+      <SkillBar label="Infrastructure / DevOps" rating={7} />
+      <SkillBar label="Project management" rating={6} />
+      <SkillBar label="Team leadership" rating={6} />
+      <SkillBar label="Machine learning / AI" rating={6} />
     </PageWrapper>
   )
 }
